@@ -16,9 +16,13 @@ li li {
   margin-top: 10pt;
 }
 
+
+
 a.image {
   background: transparent;
 }
+
+
 
 table img {
   max-height: 250px;
@@ -34,4 +38,28 @@ tr th:first-child {
 
 table.seamless tr > * {
   background: transparent !important;
+}
+
+
+
+.toc h2 {
+  font-size: 28pt;
+  font-style: italic;
+  line-height: 1.6;
+  margin: 80px 0 0 60px;
+}
+
+.toc li {
+  margin-left: 80px;
+  font-weight: normal;
+}
+.toc li.current {
+  font-weight: bold;
+}
+.toc li:before {
+  content: '' !important;
+}
+
+.toc a:not(:hover) {
+  background: none;
 }
