@@ -1,3 +1,21 @@
+li {
+  font-weight: bold;
+  font-size: 24pt;
+  line-height: 1.6;
+  margin-top: 24pt;
+  text-indent: -2.3em !important;
+}
+li:before {
+  content: '▪ ' !important;
+  padding-right: .1em !important;
+}
+
+li li {
+  font-weight: normal;
+  font-size: 20pt;
+  margin-top: 10pt;
+}
+
 a.image {
   background: transparent;
 }
