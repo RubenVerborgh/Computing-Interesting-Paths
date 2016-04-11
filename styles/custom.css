@@ -1,0 +1,19 @@
+a.image {
+  background: transparent;
+}
+
+table img {
+  max-height: 250px;
+}
+
+th, td {
+  padding: 0 1em 0 0;
+}
+
+tr th:first-child {
+  text-align: right;
+}
+
+table.seamless tr > * {
+  background: transparent !important;
+}
