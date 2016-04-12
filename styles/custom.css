@@ -24,6 +24,15 @@ a.image {
 
 
 
+code {
+  font-family: Consolas, "Courier New", Courier, monospace;
+}
+.comment {
+  color: #999999;
+}
+
+
+
 table img {
   max-height: 250px;
 }
