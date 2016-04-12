@@ -33,6 +33,13 @@ img.top {
 
 
 
+iframe {
+  width: 840px;
+  height: 540px;
+}
+
+
+
 code {
   font-family: Consolas, "Courier New", Courier, monospace;
 }
