@@ -21,6 +21,15 @@ li li {
 a.image {
   background: transparent;
 }
+img.right {
+  float: right;
+  max-width: 250px;
+  margin-right: -20px;
+}
+img.top {
+  position: relative;
+  margin-top: -80px;
+}
 
 
 
