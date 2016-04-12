@@ -137,6 +137,65 @@
 
   <div class="slide" id="dijkstra">
     <h2>The Dijkstra algorithm</h2>
+    <ul>
+      <li>
+        inputs
+        <ul>
+          <li>a graph <em>G = (V, E)</em></li>
+          <li>vertex <em>source ∈ V</em> and vertex <em>target ∈ V</em></li>
+          <li>a function <em>weight(e)</em> for each edge <em>e ∈ E</em></li>
+        </ul>
+      </li>
+      <li class="next">
+        output
+        <ul>
+          <li>a sequence <em>S</em> of connected edges from <em>source</em> to <em>target</em></li>
+        </ul>
+      </li>
+      <li class="next">
+        complexity
+        <ul>
+          <li>time: <em>O(|V| log |V| + |E|)</em> using a priority queue</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="dijkstra-algorithm">
+    <h2>The Dijkstra algorithm</h2>
+    <ul>
+      <li class="next">
+        for each vertex <em>v ∈ U</em> (a copy of <em>V</em>)
+        <ul>
+          <li class="next"><em>dist[v] ← 0 if v = source, or ∞ otherwise</em></li>
+        </ul>
+      </li>
+      <li class="next">
+        while <em>U</em> is not empty
+        <ul>
+          <li class="next">
+            <em>v ← u ∈ U</em> with minimal <em>dist[u]</em>,
+            removing <em>u</em> from <em>U</em>
+          </li>
+          <li class="next">
+            for each edge <em>e = (v, n) ∈ E</em>
+            <ul>
+              <li class="next">
+                if <em>dist[n] &gt; dist[v] + weight(e)</em>
+                <ul class="next">
+                  <li><em>dist[n] ← dist[v] + weight(e)</em></li>
+                  <li><em>prev[n] ← v</em></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li class="next">
+            terminate if <em>u = target</em>,
+            reconstructing <em>S</em> using <em>prev</em>
+          </li>
+        </ul>
+      </li>
+    </ul>
   </div>
 
   <div class="slide" id="a-star">
