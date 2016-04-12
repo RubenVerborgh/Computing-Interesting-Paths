@@ -200,6 +200,62 @@
 
   <div class="slide" id="a-star">
     <h2>The A* algorithm</h2>
+    <ul>
+      <li>
+        inputs
+        <ul>
+          <li>
+            like <a href="#dijkstra">Dijkstra</a>:
+            graph <em>G</em>, <em>source</em>, <em>target</em>, function <em>weight</em>
+          </li>
+          <li class="next">
+            a heuristic function <em>goalDistance(v)</em> for each vertex <em>v ∈ V</em>
+            <ul>
+              <li>to find the actual <em>shortest path</em>, should never overestimate</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li class="next">
+        output
+        <ul>
+          <li>a sequence <em>S</em> of connected edges from <em>source</em> to <em>target</em></li>
+        </ul>
+      </li>
+      <li class="next">
+        complexity
+        <ul>
+          <li>time: <em>O(|E|)</em></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="a-star-algorithm">
+    <h2>The A* algorithm</h2>
+    <ul>
+      <li>
+        A* maintains an <em>investigation</em> set of relevant vertices.
+        <ul>
+          <li>when visiting a vertex, all its neighbours are added</li>
+        </ul>
+      </li>
+      <li class="next">
+        Instead of <a href="#dijkstra-algorithm">Dijkstra</a>'s
+        <em>exact</em> distance to <em>next</em> vertex,<br>
+        we use the <em>estimated</em> distance to the <em>target</em>.
+      </li>
+      <li class="next">
+        We strive to have a monotonic <em>goalDistance</em>,<br>
+        since then each vertex needs at most one visit.
+        <ul>
+          <li>
+            neighbours that are more expensive to reach<br>
+            also have higher <em>goalDistance</em> values
+          </li>
+        </ul>
+      </li>
+    </ul>
   </div>
 
   <div class="toc slide" id="knowledge">
