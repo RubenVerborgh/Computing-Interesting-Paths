@@ -30,7 +30,7 @@
     <p class="source">
       <a href="https://github.com/RubenVerborgh/Computing-Interesting-Paths"><img alt="" src="images/github.svg" /></a>
       View, discuss, and edit these slides on GitHub at<br>
-      <a href="https://github.com/RubenVerborgh/Computing-Interesting-Paths">RubenVerborgh / Computing-Interesting-Paths</a>.
+      <a href="https://github.com/RubenVerborgh/Computing-Interesting-Paths">RubenVerborgh / Computing-Interesting-Paths</a>
     </p>
   </div>
 
@@ -94,8 +94,8 @@
         The goal of this class is to find <em>interesting</em> paths
         between two subjects in a knowledge base.
         <ul>
-          <li class="next">knowledge</li>
           <li class="next">pathfinding</li>
+          <li class="next">knowledge</li>
           <li class="next">interestingness</li>
         </ul>
       </li>
@@ -106,7 +106,7 @@
     <h2><a href="#cover">Computing interesting paths<br>between resources on the Web</a></h2>
     <ul>
       <li><a href="#algorithms">Algorithms and heuristics for pathfinding</a></li>
-      <li><a href="#knowledge">Modelling knowledge and interestingness</a></li>
+      <li><a href="#knowledge">Large-scale knowledge modelling</a></li>
       <li><a href="#large-scale-paths">Pathfinding on large-scale knowledge bases</a></li>
     </ul>
   </div>
@@ -115,7 +115,7 @@
     <h2><a href="#cover">Computing interesting paths<br>between resources on the Web</a></h2>
     <ul>
       <li class="current"><a href="#algorithms">Algorithms and heuristics for pathfinding</a></li>
-      <li><a href="#knowledge">Modelling knowledge and interestingness</a></li>
+      <li><a href="#knowledge">Large-scale knowledge modelling</a></li>
       <li><a href="#large-scale-paths">Pathfinding on large-scale knowledge bases</a></li>
     </ul>
   </div>
@@ -281,7 +281,7 @@
     <h2><a href="#cover">Computing interesting paths<br>between resources on the Web</a></h2>
     <ul>
       <li><a href="#algorithms">Algorithms and heuristics for pathfinding</a></li>
-      <li class="current"><a href="#knowledge">Modelling knowledge and interestingness</a></li>
+      <li class="current"><a href="#knowledge">Large-scale knowledge modelling</a></li>
       <li><a href="#large-scale-paths">Pathfinding on large-scale knowledge bases</a></li>
     </ul>
   </div>
@@ -356,7 +356,7 @@ PREFIX dbo: &lt;http://dbpedia.org/ontology/&gt;
     <h2><a href="#cover">Computing interesting paths<br>between resources on the Web</a></h2>
     <ul>
       <li><a href="#algorithms">Algorithms and heuristics for pathfinding</a></li>
-      <li><a href="#knowledge">Modelling knowledge and interestingness</a></li>
+      <li><a href="#knowledge">Large-scale knowledge modelling</a></li>
       <li class="current"><a href="#large-scale-paths">Pathfinding on large-scale knowledge bases</a></li>
     </ul>
   </div>
@@ -402,7 +402,11 @@ PREFIX dbo: &lt;http://dbpedia.org/ontology/&gt;
           <li class="next">
             <em>degree(v)</em> = | { <em>e(x, y)</em> ∈ <em>E | x = v</em> } |
           </li>
-          <li class="next"> <em>weight(e(v, u))</em> = log<em>(degree(v) + degree(u))</em>
+          <li class="next">
+            <em>predicateScore(e)</em> = 1 – % of triples using the same predicate
+          </li>
+          <li class="next">
+            <em>weight(e(v, u))</em> = log<em>(degree(v) + degree(u)) × predicateScore(e)</em>
         </ul>
       </li>
     </ul>
@@ -448,6 +452,41 @@ PREFIX dbo: &lt;http://dbpedia.org/ontology/&gt;
   <div class="slide">
     <h2>Visualization of an example path</h2>
     <img src="images/path.svg" class="full width" alt="" />
+  </div>
+
+  <div class="toc slide" id="review">
+    <h2><a href="#cover">Computing interesting paths<br>between resources on the Web</a></h2>
+    <ul>
+      <li><a href="#algorithms">Algorithms and heuristics for pathfinding</a></li>
+      <li><a href="#knowledge">Large-scale knowledge modelling</a></li>
+      <li><a href="#large-scale-paths">Pathfinding on large-scale knowledge bases</a></li>
+    </ul>
+  </div>
+
+  <div class="slide">
+    <h2>To remember from this class</h2>
+    <ul>
+      <li class="next">
+        Pathfinding can connect items in knowledge bases.
+        <ul>
+          <li> interpret large-scale RDF datasets as regular graphs </li>
+        </ul>
+      </li>
+      <li class="next">
+        To boost interestingness, prefer rare nodes and links.
+        <ul>
+          <li> choose weight function as the inverse of number of links </li>
+          <li> prioritize rare types of links over others </li>
+        </ul>
+      </li>
+      <li class="next">
+        To speed up, use semantic distance as heuristic.
+        <ul>
+          <li> choose a distance metric (such as Jaccard) </li>
+          <li> choose relevant node characteristics (such as predicates) </li>
+        </ul>
+      </li>
+    </ul>
   </div>
 
   <div class="progress"></div>
