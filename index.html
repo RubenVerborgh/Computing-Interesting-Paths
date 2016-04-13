@@ -6,6 +6,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
   <link rel="stylesheet" href="styles/screen-4x3.css">
+  <link rel="stylesheet" href="styles/mathml.css">
   <link rel="stylesheet" href="styles/custom.css">
 </head>
 <body class="shower list">
@@ -59,7 +60,7 @@
       </tr>
       <tr class="next">
         <th>2015 rock album</th>
-        <td><a href="http://www.rollingstone.com/music/news/pope-francis-to-release-pop-rock-album-wake-up-20150925"><i>Wake Up!</li></a></td>
+        <td><a href="http://www.rollingstone.com/music/news/pope-francis-to-release-pop-rock-album-wake-up-20150925"><i>Wake Up!</i></a></td>
         <td><a href="http://www.rollingstone.com/music/news/hear-elvis-presleys-powerful-newly-orchestrated-if-i-can-dream-20150812"><i>If I Can Dream</i></a></td>
       </tr>
       <tr class="next">
@@ -349,6 +350,90 @@ PREFIX dbo: &lt;http://dbpedia.org/ontology/&gt;
       <li><a href="#algorithms">Algorithms and heuristics for pathfinding</a></li>
       <li><a href="#knowledge">Modelling knowledge and interestingness</a></li>
       <li class="current"><a href="#large-scale-paths">Pathfinding on large-scale knowledge bases</a></li>
+    </ul>
+  </div>
+
+  <div class="slide">
+    <h2>Tailoring A* to our problem</h2>
+    <ul>
+      <li>
+        Our graph consists of 400 million edges.
+      </li>
+      <li>
+        How will we find <em>interesting</em> paths?
+        <ul>
+          <li class="next">
+            We have to adjust the <em>weight</em> function to prefer rare edges.
+          </li>
+        </ul>
+      </li>
+      <li>
+        How will we find paths <em>fast</em>?
+        <ul>
+          <li class="next">
+            We have to choose an effective and efficient <em>goalDistance</em>.
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide">
+    <h2>Choosing a <em>weight</em> function</h2>
+    <ul>
+      <li>
+        We consider an edge <em>e(start, end)</em> interesting if:
+        <ul>
+          <li class="next"> <em>start</em> has a low probability of being reached randomly </li>
+          <li class="next"> <em>end</em>   has a low probability of being reached randomly </li>
+        </ul>
+      </li>
+      <li>
+        We therefore define <em>weight</em> as follows:
+        <ul>
+          <li class="next">
+            <em>degree(v)</em> = | { <em>e(x, y)</em> ∈ <em>E | x = v</em> } |
+          </li>
+          <li class="next"> <em>weight(e(v, u))</em> = log<em>(degree(v) + degree(u))</em>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide">
+    <h2>Choosing a <em>goalDistance</em> heuristic</h2>
+    <ul>
+      <li>
+        A vertex brings us closer to the target<br>
+        if they are <em>semantically</em> related.
+        <ul>
+          <li class="next">
+            similar things are often expressed in similar ways
+          </li>
+          <li class="next">
+            we can estimate relatedness based on common <em>predicates</em>
+          </li>
+          <li class="next">
+            the <a href="https://class.coursera.org/nlp/lecture/184">Jaccard distance</a>
+            compares the similarity of sets
+          </li>
+        </ul>
+      </li>
+      <li class="next">
+        We therefore define <em>goalDistance</em> as follows:
+        <ul>
+          <li>
+            <math>
+              <mi>goalDistance(v, u)</mi> <mo>=</mo>
+              <mn>1</mn> <mo>–</mo>
+              <mfrac>
+                <mrow><mo>|</mo><mi>predicates(v)</mi><mo>⋂</mo><mi>predicates(u)</mi><mo>|</mo></mrow>
+                <mrow><mo>|</mo><mi>predicates(v)</mi><mo>⋃</mo><mi>predicates(u)</mi><mo>|</mo></mrow>
+              </mfrac>
+            </math>
+          </li>
+        </ul>
+      </li>
     </ul>
   </div>
 
