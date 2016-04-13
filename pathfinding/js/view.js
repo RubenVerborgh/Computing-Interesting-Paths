@@ -47,8 +47,8 @@ var View = {
         transformBack: 's1.0',
     },
     pathStyle: {
-        stroke: 'black',
-        'stroke-width': 3,
+        stroke: '#F3B229',
+        'stroke-width': 8,
     },
     supportedOperations: ['opened', 'closed', 'tested'],
     init: function(opts) {
