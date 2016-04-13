@@ -30,6 +30,10 @@ img.top {
   position: relative;
   margin-top: -80px;
 }
+img.full.width {
+  width: 100%;
+  margin-top: -20px;
+}
 
 
 
