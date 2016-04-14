@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="styles/screen-4x3.css">
   <link rel="stylesheet" href="styles/mathml.css">
   <link rel="stylesheet" href="styles/custom.css">
+  <link rel="stylesheet" href="eic/jquery-ui.css">
+  <link rel="stylesheet" href="eic/jquery-ui.theme.css">
 </head>
 <body class="shower list">
   <header class="caption">
@@ -454,6 +456,19 @@ PREFIX dbo: &lt;http://dbpedia.org/ontology/&gt;
     </ul>
   </div>
 
+  <div class="slide" id="path-example">
+    <h2>Calculate a path</h2>
+    <ul>
+      <li>
+        from <input id="start" />
+        to <input id="end" />
+        <button id="find">Calculate</button>
+        <ul id="path">
+        </ul>
+      </li>
+    </ul>
+  </div>
+
   <div class="slide">
     <h2>Visualization of an example path</h2>
     <img src="images/path.svg" class="full width" alt="" />
@@ -499,6 +514,9 @@ PREFIX dbo: &lt;http://dbpedia.org/ontology/&gt;
     <a href="https://github.com/RubenVerborgh/Computing-Interesting-Paths">Discuss on GitHub</a>
   </footer>
   <script src="scripts/shower.min.js"></script>
+  <script src="eic/jquery.js"></script>
+  <script src="eic/jquery-ui.js"></script>
+  <script src="eic/eic.js"></script>
   <script>
     setInterval(function (e) {
       ((e = document.activeElement).tagName === 'IFRAME') && e.blur();
