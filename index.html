@@ -335,7 +335,7 @@ PREFIX dbo: &lt;http://dbpedia.org/ontology/&gt;
   </div>
 
   <div class="slide" id="dbpedia">
-    <h2>DBpedia</h2>
+    <h2>DBpedia knowledge base</h2>
     <a href="https://en.wikipedia.org/wiki/Elvis_Presley" class="next image"><img src="images/wikipedia.png" alt="[Wikipedia infobox]" class="top right" /></a>
     <ul>
       <li class="next">
@@ -354,6 +354,32 @@ PREFIX dbo: &lt;http://dbpedia.org/ontology/&gt;
             major challenge:<br>
             pathfinding with 400 million edges
           </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide">
+    <h2>The SPARQL query language</h2>
+    <ul>
+      <li>
+        RDF databases provide the SPARQL query language.
+        <ul>
+          <li>retrieve triples based on specific patterns</li>
+        </ul>
+      </li>
+      <li class="next">
+        SPARQL is not practical for pathfinding.
+        <ul>
+          <li> difficult to prioritize certain predicates over others </li>
+          <li> difficult to express paths of arbitrary length </li>
+        </ul>
+      </li>
+      <li class="next">
+        Pathfinding queries are computationally hard.
+        <ul>
+          <li> a SPARQL engine evaluates queries using joins </li>
+          <li> pathfinding would need large joins, and they are expensive </li>
         </ul>
       </li>
     </ul>
